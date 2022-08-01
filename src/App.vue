@@ -1,28 +1,62 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ProgressBar
+      :progressOffset="100"
+      :progressColor="['pink', 'skyblue']"
+      @changeOut="fn"
+      round
+      :progressWidth="1500"
+      :progressHeight="50"
+    />
+    <br />
+    <ProgressBar
+      progressOffset="60"
+      :progressColor="['yellow', '#000']"
+      @changeOut="fn"
+      :progressWidth="700"
+      :progressHeight="50"
+    />
+    <br />
+    <ProgressBar
+      progressOffset="11"
+      :progressColor="['#456be8', '#15ac68']"
+      @changeOut="fn"
+      round
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import ProgressBar from "@/components/ProgressBar.vue";
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {};
+  },
+
+  created() {},
+
+  methods: {
+    fn() {
+      console.log("进度条满了");
+    },
+  },
+
+  computed: {},
+
   components: {
-    HelloWorld
-  }
-}
+    ProgressBar,
+  },
+};
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  width: 100%;
+  height: 100vh;
 }
 </style>
